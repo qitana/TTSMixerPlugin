@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSMixerPlugin", "TTSMixerPlugin\TTSMixerPlugin.csproj", "{3E0E69EF-8933-46CD-8901-607685C6885B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSMixerPlugin.Common", "TTSMixerPlugin.Common\TTSMixerPlugin.Common.csproj", "{DCDCFFD0-A54C-4A0F-A3C8-02C658E642DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSMixerPlugin.Core", "TTSMixerPlugin.Core\TTSMixerPlugin.Core.csproj", "{94912FB8-CFE7-4C1C-89CA-729CB71692A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E0E69EF-8933-46CD-8901-607685C6885B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0E69EF-8933-46CD-8901-607685C6885B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0E69EF-8933-46CD-8901-607685C6885B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0E69EF-8933-46CD-8901-607685C6885B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDCFFD0-A54C-4A0F-A3C8-02C658E642DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDCFFD0-A54C-4A0F-A3C8-02C658E642DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDCFFD0-A54C-4A0F-A3C8-02C658E642DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDCFFD0-A54C-4A0F-A3C8-02C658E642DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94912FB8-CFE7-4C1C-89CA-729CB71692A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94912FB8-CFE7-4C1C-89CA-729CB71692A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94912FB8-CFE7-4C1C-89CA-729CB71692A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94912FB8-CFE7-4C1C-89CA-729CB71692A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5B9936C-307B-4590-8E59-B4340FFEB652}
+	EndGlobalSection
+EndGlobal

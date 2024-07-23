@@ -1,5 +1,5 @@
 # Project-specific files
-/ThirdParty
+/Thirdparty
 /.cache_deps
 
 ## Ignore Visual Studio temporary files, build results, and
