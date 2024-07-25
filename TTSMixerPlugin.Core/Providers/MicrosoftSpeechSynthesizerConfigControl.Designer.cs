@@ -1,6 +1,6 @@
 ﻿namespace Qitana.TTSMixerPlugin.Providers
 {
-    partial class SpeechSynthesizerConfigControl
+    partial class MicrosoftSpeechSynthesizerConfigControl
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

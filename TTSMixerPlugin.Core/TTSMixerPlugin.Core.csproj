@@ -148,13 +148,13 @@
     <Compile Include="PluginMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProfileConfigBase.cs" />
-    <Compile Include="Providers\SpeechSynthesizer.cs" />
-    <Compile Include="Providers\SpeechSynthesizerConfig.cs" />
-    <Compile Include="Providers\SpeechSynthesizerConfigControl.cs">
+    <Compile Include="Providers\MicrosoftSpeechSynthesizer.cs" />
+    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfig.cs" />
+    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Providers\SpeechSynthesizerConfigControl.Designer.cs">
-      <DependentUpon>SpeechSynthesizerConfigControl.cs</DependentUpon>
+    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigControl.Designer.cs">
+      <DependentUpon>MicrosoftSpeechSynthesizerConfigControl.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
@@ -193,8 +193,8 @@
     <EmbeddedResource Include="Controls\RenameProfileDialog.resx">
       <DependentUpon>RenameProfileDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Providers\SpeechSynthesizerConfigControl.resx">
-      <DependentUpon>SpeechSynthesizerConfigControl.cs</DependentUpon>
+    <EmbeddedResource Include="Providers\MicrosoftSpeechSynthesizerConfigControl.resx">
+      <DependentUpon>MicrosoftSpeechSynthesizerConfigControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

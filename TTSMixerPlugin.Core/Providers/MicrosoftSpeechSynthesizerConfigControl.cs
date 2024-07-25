@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Qitana.TTSMixerPlugin.Providers
 {
-    public partial class SpeechSynthesizerConfigControl : UserControl
+    public partial class MicrosoftSpeechSynthesizerConfigControl : UserControl
     {
-        private SpeechSynthesizer _channel;
-        private SpeechSynthesizerConfig _config;
+        private MicrosoftSpeechSynthesizer _channel;
+        private MicrosoftSpeechSynthesizerConfig _config;
 
-        public SpeechSynthesizerConfigControl(TinyIoCContainer container, SpeechSynthesizer profile)
+        public MicrosoftSpeechSynthesizerConfigControl(TinyIoCContainer container, MicrosoftSpeechSynthesizer profile)
         {
             InitializeComponent();
             _channel = profile;

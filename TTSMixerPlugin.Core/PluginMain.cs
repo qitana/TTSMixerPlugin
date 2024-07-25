@@ -249,7 +249,7 @@ namespace Qitana.TTSMixerPlugin
         private void LoadBuiltInProfile()
         {
             var registory = _container.Resolve<Registry>();
-            registory.RegisterProfile<SpeechSynthesizer>();
+            registory.RegisterProfile<MicrosoftSpeechSynthesizer>();
         }
 
         /// <summary>

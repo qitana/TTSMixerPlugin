@@ -8,18 +8,18 @@ using System.Windows.Forms;
 namespace Qitana.TTSMixerPlugin.Providers
 
 {
-    public class SpeechSynthesizer : ProfileBase<SpeechSynthesizerConfig>
+    public class MicrosoftSpeechSynthesizer : ProfileBase<MicrosoftSpeechSynthesizerConfig>
     {
 
         public override string TypeFriendlyName => "Speech Synthesizer";
 
         PluginConfig PluginConfig => _container.Resolve<PluginConfig>();
 
-        public SpeechSynthesizer(TinyIoCContainer container, SpeechSynthesizerConfig config) : base(container, config)
+        public MicrosoftSpeechSynthesizer(TinyIoCContainer container, MicrosoftSpeechSynthesizerConfig config) : base(container, config)
         {
         }
 
-        public SpeechSynthesizer(TinyIoCContainer container, string name) : base(container, name)
+        public MicrosoftSpeechSynthesizer(TinyIoCContainer container, string name) : base(container, name)
         {
         }
 
@@ -88,7 +88,7 @@ namespace Qitana.TTSMixerPlugin.Providers
 
         public override Control CreateConfigControl()
         {
-            return new SpeechSynthesizerConfigControl(_container, this);
+            return new MicrosoftSpeechSynthesizerConfigControl(_container, this);
         }
 
         public List<string> GetInstalledVoices()
