@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Qitana.TTSMixerPlugin
@@ -53,7 +51,7 @@ namespace Qitana.TTSMixerPlugin
 
         public abstract string ConvertTextToAudioFile(string text, bool canUseCache = true, bool canSaveToCache = true);
 
-        public void PlayText(string text)
+        public virtual void PlayText(string text)
         {
             ActGlobals.oFormActMain.Invoke((Action)(() =>
             {
@@ -86,7 +84,7 @@ namespace Qitana.TTSMixerPlugin
 
         }
 
-        public void PlayFile(string filePath)
+        public virtual void PlayFile(string filePath)
         {
             ActGlobals.oFormActMain.Invoke((Action)(() =>
             {

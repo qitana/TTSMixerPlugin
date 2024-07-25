@@ -1,13 +1,14 @@
-﻿using System;
+﻿using NAudio.CoreAudioApi;
+using NAudio.Wave;
+using System;
 using System.Collections.Concurrent;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using NAudio.CoreAudioApi;
-using NAudio.Wave;
 
 namespace Qitana.TTSMixerPlugin
 {
-    internal class AudioController: IAudioController
+    internal class AudioController : IAudioController
     {
         MMDevice _audioDevice;
 
@@ -66,6 +67,33 @@ namespace Qitana.TTSMixerPlugin
         }
 
         public void PlayAudioFile(string filePath, float volume = 1.0f) => PlayAudioFileAsync(filePath, volume);
+
+        public void EnqueueWaveStream16(MemoryStream stream, float volume = 1.0f, bool isPriority = false)
+        {
+            // throw exception if resetting the queue
+            if (Interlocked.CompareExchange(ref isResettingQueue, 0, 0) == 1)
+            {
+                throw new InvalidOperationException("Cannot enqueue audio file while resetting the queue.");
+            }
+
+            // add the task to the queue
+            if (isPriority)
+            {
+                priorityTaskQueue.Enqueue(() => PlayWave16StreamAsync(stream, volume));
+            }
+            else
+            {
+                normalTaskQueue.Enqueue(() => PlayWave16StreamAsync(stream, volume));
+            }
+
+            // process the queue if it is not processing
+            if (Interlocked.CompareExchange(ref isProcessingQueue, 1, 0) == 0)
+            {
+                ProcessQueue();
+            }
+        }
+
+        public void PlayWaveStream16(MemoryStream stream, float volume = 1.0f) => PlayWave16StreamAsync(stream, volume);
 
         public void ResetQueue()
         {
@@ -143,5 +171,39 @@ namespace Qitana.TTSMixerPlugin
                 }
             });
         }
+
+        private Task PlayWave16StreamAsync(MemoryStream stream, float volume)
+        {
+            return Task.Run(async () =>
+            {
+                try
+                {
+                    using (var reader = new WaveFileReader(stream))
+                    using (var outputDevice = new WasapiOut(AudioClientShareMode.Shared, 10))
+                    {
+                        // set volume level between 0.0 and 1.0
+                        var volumeProvider = new VolumeWaveProvider16(reader) { Volume = volume < 0.0f ? 0.0f : volume > 1.0f ? 1.0f : volume };
+
+                        // set audio file to output device
+                        outputDevice.Init(volumeProvider);
+
+                        // start playback
+                        outputDevice.Play();
+
+                        // wait until the playback is finished
+                        while (outputDevice.PlaybackState == PlaybackState.Playing)
+                        {
+                            await Task.Delay(50);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"再生中にエラーが発生しました: {ex.Message}");
+                }
+            });
+        }
+
     }
+
 }

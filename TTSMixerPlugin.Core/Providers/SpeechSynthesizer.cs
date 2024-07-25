@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Advanced_Combat_Tracker;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Qitana.TTSMixerPlugin.Providers
@@ -28,9 +26,12 @@ namespace Qitana.TTSMixerPlugin.Providers
 
         public override string ConvertTextToAudioFile(string text, bool canUseCache = true, bool canSaveToCache = true)
         {
-            var cachePath = PluginConfig.PluginCachePath;
-            var filePath = Path.Combine(cachePath, $"{Guid.NewGuid().ToString("N")}.wav");
+            throw new NotImplementedException();
+        }
 
+        private MemoryStream ConvertTextToMemoryStream(string text)
+        {
+            var stream = new MemoryStream();
             var synthesizer = new System.Speech.Synthesis.SpeechSynthesizer();
             if (Config.Voice != null)
             {
@@ -42,13 +43,47 @@ namespace Qitana.TTSMixerPlugin.Providers
                 {
                 }
             }
-            synthesizer.SetOutputToWaveFile(filePath);
+            synthesizer.SetOutputToWaveStream(stream);
             synthesizer.Volume = Config.Volume;
             synthesizer.Rate = Config.Rate;
             synthesizer.Speak(text);
+            synthesizer.SetOutputToNull();
             synthesizer.Dispose();
 
-            return filePath;
+            stream.Position = 0;
+            return stream;
+        }
+
+        public override void PlayText(string text)
+        {
+            ActGlobals.oFormActMain.Invoke((Action)(() =>
+            {
+                var stream = ConvertTextToMemoryStream(text);
+                HashSet<string> controllerIDs = new HashSet<string>(_audioControllers.Select(c => c.ID));
+                foreach (var audioConfig in Config.AudioDevices)
+                {
+                    if (audioConfig.Enabled && controllerIDs.Contains(audioConfig.ID))
+                    {
+                        var controller = _audioControllers.First(c => c.ID == audioConfig.ID);
+                        if (controller == null)
+                        {
+                            return;
+                        }
+                        switch (audioConfig.PlaybackMode)
+                        {
+                            case PlaybackMode.Enqueue:
+                                controller.EnqueueWaveStream16(stream, audioConfig.Volume);
+                                break;
+                            case PlaybackMode.EnqueuePriority:
+                                controller.EnqueueWaveStream16(stream, audioConfig.Volume, true);
+                                break;
+                            case PlaybackMode.PlayImmediately:
+                                controller.EnqueueWaveStream16(stream, audioConfig.Volume);
+                                break;
+                        }
+                    }
+                }
+            }));
         }
 
         public override Control CreateConfigControl()
