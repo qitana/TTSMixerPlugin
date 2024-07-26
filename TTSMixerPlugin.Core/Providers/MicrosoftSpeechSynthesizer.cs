@@ -13,8 +13,6 @@ namespace Qitana.TTSMixerPlugin.Providers
 
         public override string TypeFriendlyName => "Speech Synthesizer";
 
-        PluginConfig PluginConfig => _container.Resolve<PluginConfig>();
-
         public MicrosoftSpeechSynthesizer(TinyIoCContainer container, MicrosoftSpeechSynthesizerConfig config) : base(container, config)
         {
         }

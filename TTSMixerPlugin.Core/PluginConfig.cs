@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace Qitana.TTSMixerPlugin
 {
     [Serializable]
-    internal class PluginConfig : IPluginConfig
+    public class PluginConfig : IPluginConfig
     {
         const string BACKUP_SUFFIX = ".backup";
 

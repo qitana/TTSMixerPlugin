@@ -12,29 +12,29 @@ namespace Qitana.TTSMixerPlugin.Providers
 {
     public partial class MicrosoftSpeechSynthesizerConfigControl : UserControl
     {
-        private MicrosoftSpeechSynthesizer _channel;
-        private MicrosoftSpeechSynthesizerConfig _config;
+        private MicrosoftSpeechSynthesizer profile;
+        private MicrosoftSpeechSynthesizerConfig config;
 
         public MicrosoftSpeechSynthesizerConfigControl(TinyIoCContainer container, MicrosoftSpeechSynthesizer profile)
         {
             InitializeComponent();
-            _channel = profile;
-            _config = profile.Config;
+            this.profile = profile;
+            config = profile.Config;
 
             string[] voices = profile.GetInstalledVoices().ToArray();
             comboBoxVoiceName.Items.Clear();
             comboBoxVoiceName.Items.AddRange(voices);
 
-            if (voices.Contains(_config.Voice)) {
-                comboBoxVoiceName.SelectedItem = _config.Voice;
+            if (voices.Contains(config.Voice)) {
+                comboBoxVoiceName.SelectedItem = config.Voice;
             } else {
                 comboBoxVoiceName.SelectedIndex = -1;
             }
 
-            trackBarVolume.Value = _config.Volume;
-            labelVolumeValue.Text = _config.Volume.ToString();
-            trackBarRate.Value = _config.Rate;
-            labelRateValue.Text = _config.Rate.ToString();
+            trackBarVolume.Value = config.Volume;
+            labelVolumeValue.Text = config.Volume.ToString();
+            trackBarRate.Value = config.Rate;
+            labelRateValue.Text = config.Rate.ToString();
 
             comboBoxVoiceName.SelectedIndexChanged += comboBoxVoiceName_SelectedIndexChanged;
             trackBarVolume.ValueChanged += trackBarVolume_ValueChanged;
@@ -46,23 +46,23 @@ namespace Qitana.TTSMixerPlugin.Providers
         {
             if (comboBoxVoiceName.SelectedIndex == -1)
             {
-                _config.Voice = null;
+                config.Voice = null;
             }
             else
             {
-                _config.Voice = comboBoxVoiceName.SelectedItem.ToString();
+                config.Voice = comboBoxVoiceName.SelectedItem.ToString();
             }
         }
 
         private void trackBarVolume_ValueChanged(object sender, EventArgs e)
         {
-            _config.Volume = trackBarVolume.Value;
+            config.Volume = trackBarVolume.Value;
             labelVolumeValue.Text = trackBarVolume.Value.ToString();
         }
 
         private void trackBarRate_ValueChanged(object sender, EventArgs e)
         {
-            _config.Rate = trackBarRate.Value;
+            config.Rate = trackBarRate.Value;
             labelRateValue.Text = trackBarRate.Value.ToString();
         }
     }

@@ -42,77 +42,92 @@ namespace Qitana.TTSMixerPlugin
 
         public TConfig Config { get; private set; }
 
-
         IProfileConfig IProfile.Config
         {
             get => Config;
             set => Config = (TConfig)value;
         }
 
+        public PluginConfig PluginConfig => _container.Resolve<PluginConfig>();
+
         public abstract string ConvertTextToAudioFile(string text, bool canUseCache = true, bool canSaveToCache = true);
 
         public virtual void PlayText(string text)
         {
-            ActGlobals.oFormActMain.Invoke((Action)(() =>
+            try
             {
-                var file = ConvertTextToAudioFile(text);
-                HashSet<string> controllerIDs = new HashSet<string>(_audioControllers.Select(c => c.ID));
-                foreach (var audioConfig in Config.AudioDevices)
+                ActGlobals.oFormActMain.Invoke((Action)(() =>
                 {
-                    if (audioConfig.Enabled && controllerIDs.Contains(audioConfig.ID))
+                    var file = ConvertTextToAudioFile(text);
+                    HashSet<string> controllerIDs = new HashSet<string>(_audioControllers.Select(c => c.ID));
+                    foreach (var audioConfig in Config.AudioDevices)
                     {
-                        var controller = _audioControllers.First(c => c.ID == audioConfig.ID);
-                        if (controller == null)
+                        if (audioConfig.Enabled && controllerIDs.Contains(audioConfig.ID))
                         {
-                            return;
-                        }
-                        switch (audioConfig.PlaybackMode)
-                        {
-                            case PlaybackMode.Enqueue:
-                                controller.EnqueueAudioFile(file, audioConfig.Volume);
-                                break;
-                            case PlaybackMode.EnqueuePriority:
-                                controller.EnqueueAudioFile(file, audioConfig.Volume, true);
-                                break;
-                            case PlaybackMode.PlayImmediately:
-                                controller.PlayAudioFile(file, audioConfig.Volume);
-                                break;
+                            var controller = _audioControllers.First(c => c.ID == audioConfig.ID);
+                            if (controller == null)
+                            {
+                                return;
+                            }
+                            switch (audioConfig.PlaybackMode)
+                            {
+                                case PlaybackMode.Enqueue:
+                                    controller.EnqueueAudioFile(file, audioConfig.Volume);
+                                    break;
+                                case PlaybackMode.EnqueuePriority:
+                                    controller.EnqueueAudioFile(file, audioConfig.Volume, true);
+                                    break;
+                                case PlaybackMode.PlayImmediately:
+                                    controller.PlayAudioFile(file, audioConfig.Volume);
+                                    break;
+                            }
                         }
                     }
-                }
-            }));
+                }));
+            }
+            catch (Exception ex)
+            {
+                _logger.Log(LogLevel.Error, ex.Message);
+            }
 
         }
 
         public virtual void PlayFile(string filePath)
         {
-            ActGlobals.oFormActMain.Invoke((Action)(() =>
+            try
             {
-                HashSet<string> controllerIDs = new HashSet<string>(_audioControllers.Select(c => c.ID));
-                foreach (var audioConfig in Config.AudioDevices)
+                ActGlobals.oFormActMain.Invoke((Action)(() =>
                 {
-                    if (audioConfig.Enabled && controllerIDs.Contains(audioConfig.ID))
+                    HashSet<string> controllerIDs = new HashSet<string>(_audioControllers.Select(c => c.ID));
+                    foreach (var audioConfig in Config.AudioDevices)
                     {
-                        var controller = _audioControllers.First(c => c.ID == audioConfig.ID);
-                        if (controller == null)
+                        if (audioConfig.Enabled && controllerIDs.Contains(audioConfig.ID))
                         {
-                            return;
-                        }
-                        switch (audioConfig.PlaybackMode)
-                        {
-                            case PlaybackMode.Enqueue:
-                                controller.EnqueueAudioFile(filePath, audioConfig.Volume);
-                                break;
-                            case PlaybackMode.EnqueuePriority:
-                                controller.EnqueueAudioFile(filePath, audioConfig.Volume, true);
-                                break;
-                            case PlaybackMode.PlayImmediately:
-                                controller.PlayAudioFile(filePath, audioConfig.Volume);
-                                break;
+                            var controller = _audioControllers.First(c => c.ID == audioConfig.ID);
+                            if (controller == null)
+                            {
+                                return;
+                            }
+                            switch (audioConfig.PlaybackMode)
+                            {
+                                case PlaybackMode.Enqueue:
+                                    controller.EnqueueAudioFile(filePath, audioConfig.Volume);
+                                    break;
+                                case PlaybackMode.EnqueuePriority:
+                                    controller.EnqueueAudioFile(filePath, audioConfig.Volume, true);
+                                    break;
+                                case PlaybackMode.PlayImmediately:
+                                    controller.PlayAudioFile(filePath, audioConfig.Volume);
+                                    break;
+                            }
                         }
                     }
-                }
-            }));
+                }));
+            }
+            catch (Exception ex)
+            {
+                _logger.Log(LogLevel.Error, ex.Message);
+            }
         }
     }
 }
