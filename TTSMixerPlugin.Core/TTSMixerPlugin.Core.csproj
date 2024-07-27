@@ -148,6 +148,20 @@
     <Compile Include="PluginMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProfileConfigBase.cs" />
+    <Compile Include="Providers\AzureAISpeech.cs" />
+    <Compile Include="Providers\AzureAISpeechConfig.cs" />
+    <Compile Include="Providers\AzureAISpeechConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Providers\AzureAISpeechConfigPanel.Designer.cs">
+      <DependentUpon>AzureAISpeechConfigPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Providers\AzureAISpeechSetCredentialsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Providers\AzureAISpeechSetCredentialsDialog.Designer.cs">
+      <DependentUpon>AzureAISpeechSetCredentialsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Providers\MicrosoftSpeechSynthesizer.cs" />
     <Compile Include="Providers\MicrosoftSpeechSynthesizerConfig.cs" />
     <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigPanel.cs">
@@ -193,8 +207,14 @@
     <EmbeddedResource Include="Controls\RenameProfileDialog.resx">
       <DependentUpon>RenameProfileDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Providers\AzureAISpeechSetCredentialsDialog.resx">
+      <DependentUpon>AzureAISpeechSetCredentialsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Providers\MicrosoftSpeechSynthesizerConfigPanel.resx">
       <DependentUpon>MicrosoftSpeechSynthesizerConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Providers\AzureAISpeechConfigPanel.resx">
+      <DependentUpon>AzureAISpeechConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

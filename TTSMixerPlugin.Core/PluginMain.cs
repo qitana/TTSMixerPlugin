@@ -250,6 +250,7 @@ namespace Qitana.TTSMixerPlugin
         {
             var registory = _container.Resolve<Registry>();
             registory.RegisterProfile<MicrosoftSpeechSynthesizer>();
+            registory.RegisterProfile<AzureAISpeech>();
         }
 
         /// <summary>
