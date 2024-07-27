@@ -86,7 +86,7 @@ namespace Qitana.TTSMixerPlugin.Providers
 
         public override Control CreateConfigControl()
         {
-            return new MicrosoftSpeechSynthesizerConfigControl(_container, this);
+            return new MicrosoftSpeechSynthesizerConfigPanel(_container, this);
         }
 
         public List<string> GetInstalledVoices()

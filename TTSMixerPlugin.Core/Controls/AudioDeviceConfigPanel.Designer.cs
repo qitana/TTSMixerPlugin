@@ -1,6 +1,6 @@
 ﻿namespace Qitana.TTSMixerPlugin
 {
-    partial class AudioDeviceConfigControl
+    partial class AudioDeviceConfigPanel
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AudioDeviceConfigControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AudioDeviceConfigPanel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelVolumeValue = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Qitana.TTSMixerPlugin
 {
-    public partial class ProfileConfigTabControl : UserControl
+    public partial class ProfileConfigTabPanel : UserControl
     {
         private readonly TinyIoCContainer _container;
         private IProfile _profile;
         private Control _control;
         private List<IAudioController> _audioControllers;
 
-        public ProfileConfigTabControl(TinyIoCContainer container, IProfile profile, Control control)
+        public ProfileConfigTabPanel(TinyIoCContainer container, IProfile profile, Control control)
         {
             _container = container;
             _profile = profile;
@@ -50,7 +50,7 @@ namespace Qitana.TTSMixerPlugin
 
             foreach (var audioConfig in audioDevceConfigurations)
             {
-                flowLayoutPanelAudioDevices.Controls.Add(new AudioDeviceConfigControl(_container, audioConfig));
+                flowLayoutPanelAudioDevices.Controls.Add(new AudioDeviceConfigPanel(_container, audioConfig));
             }
         }
 

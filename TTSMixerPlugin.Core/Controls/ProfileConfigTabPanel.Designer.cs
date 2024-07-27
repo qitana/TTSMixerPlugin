@@ -1,6 +1,6 @@
 ﻿namespace Qitana.TTSMixerPlugin
 {
-    partial class ProfileConfigTabControl
+    partial class ProfileConfigTabPanel
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -139,12 +139,12 @@
             this.buttonRunTest.UseVisualStyleBackColor = true;
             this.buttonRunTest.Click += new System.EventHandler(this.buttonRunTest_Click);
             // 
-            // ProfileConfigTabControl
+            // ProfileConfigTabPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ProfileConfigTabControl";
+            this.Name = "ProfileConfigTabPanel";
             this.Padding = new System.Windows.Forms.Padding(3, 8, 0, 0);
             this.Size = new System.Drawing.Size(600, 400);
             this.tabControl1.ResumeLayout(false);

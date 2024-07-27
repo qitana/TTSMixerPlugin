@@ -21,7 +21,7 @@ namespace Qitana.TTSMixerPlugin
 
         PluginMain _pluginMain;
         IPluginConfig _config;
-        GeneralConfigTabControl generalConfigTabControl;
+        GeneralConfigTabPanel generalConfigTabControl;
         TabPage _generalConfigTabPage;
 
         bool logAreaResized = false;
@@ -37,7 +37,7 @@ namespace Qitana.TTSMixerPlugin
             _pluginMain = container.Resolve<PluginMain>();
             _config = container.Resolve<IPluginConfig>();
 
-            generalConfigTabControl = new GeneralConfigTabControl(container);
+            generalConfigTabControl = new GeneralConfigTabPanel(container);
             _generalConfigTabPage = new ConfigTabPage
             {
                 Name = "General",
@@ -97,7 +97,7 @@ namespace Qitana.TTSMixerPlugin
             {
                 configControl.Dock = DockStyle.Fill;
                 configControl.BackColor = SystemColors.ControlLightLight;
-                var control = new ProfileConfigTabControl(_container, profile, configControl);
+                var control = new ProfileConfigTabPanel(_container, profile, configControl);
                 control.Dock = DockStyle.Fill;
                 tabPage.Controls.Add(control);
 

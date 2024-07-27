@@ -13,7 +13,7 @@ using System.Xml.Serialization;
 
 namespace Qitana.TTSMixerPlugin
 {
-    public partial class GeneralConfigTabControl : UserControl
+    public partial class GeneralConfigTabPanel : UserControl
     {
         private readonly TinyIoCContainer container;
         private readonly ILogger logger;
@@ -24,7 +24,7 @@ namespace Qitana.TTSMixerPlugin
         private readonly FormActMain.PlaySoundDelegate originalPlaySoundMethod;
 
 
-        public GeneralConfigTabControl(TinyIoCContainer container)
+        public GeneralConfigTabPanel(TinyIoCContainer container)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;

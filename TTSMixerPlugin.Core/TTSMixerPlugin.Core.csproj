@@ -84,11 +84,11 @@
   <ItemGroup>
     <Compile Include="AudioController.cs" />
     <Compile Include="AudioDeviceConfig.cs" />
-    <Compile Include="Controls\AudioDeviceConfigControl.cs">
+    <Compile Include="Controls\AudioDeviceConfigPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\AudioDeviceConfigControl.Designer.cs">
-      <DependentUpon>AudioDeviceConfigControl.cs</DependentUpon>
+    <Compile Include="Controls\AudioDeviceConfigPanel.Designer.cs">
+      <DependentUpon>AudioDeviceConfigPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ConfigErrorDialog.cs">
       <SubType>Form</SubType>
@@ -115,11 +115,11 @@
       <DependentUpon>RenameProfileDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfileBase.cs" />
-    <Compile Include="Controls\ProfileConfigTabControl.cs">
+    <Compile Include="Controls\ProfileConfigTabPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProfileConfigTabControl.Designer.cs">
-      <DependentUpon>ProfileConfigTabControl.cs</DependentUpon>
+    <Compile Include="Controls\ProfileConfigTabPanel.Designer.cs">
+      <DependentUpon>ProfileConfigTabPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlPanel.cs">
       <SubType>UserControl</SubType>
@@ -127,11 +127,11 @@
     <Compile Include="Controls\ControlPanel.Designer.cs">
       <DependentUpon>ControlPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\GeneralConfigTabControl.cs">
+    <Compile Include="Controls\GeneralConfigTabPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\GeneralConfigTabControl.Designer.cs">
-      <DependentUpon>GeneralConfigTabControl.cs</DependentUpon>
+    <Compile Include="Controls\GeneralConfigTabPanel.Designer.cs">
+      <DependentUpon>GeneralConfigTabPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ErrorLogPanel.cs">
       <SubType>UserControl</SubType>
@@ -150,20 +150,20 @@
     <Compile Include="ProfileConfigBase.cs" />
     <Compile Include="Providers\MicrosoftSpeechSynthesizer.cs" />
     <Compile Include="Providers\MicrosoftSpeechSynthesizerConfig.cs" />
-    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigControl.cs">
+    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigControl.Designer.cs">
-      <DependentUpon>MicrosoftSpeechSynthesizerConfigControl.cs</DependentUpon>
+    <Compile Include="Providers\MicrosoftSpeechSynthesizerConfigPanel.Designer.cs">
+      <DependentUpon>MicrosoftSpeechSynthesizerConfigPanel.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Controls\AudioDeviceConfigControl.ja-JP.resx">
-      <DependentUpon>AudioDeviceConfigControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\AudioDeviceConfigPanel.ja-JP.resx">
+      <DependentUpon>AudioDeviceConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AudioDeviceConfigControl.resx">
-      <DependentUpon>AudioDeviceConfigControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\AudioDeviceConfigPanel.resx">
+      <DependentUpon>AudioDeviceConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ConfigErrorDialog.resx">
       <DependentUpon>ConfigErrorDialog.cs</DependentUpon>
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="Controls\NewProfileDialog.resx">
       <DependentUpon>NewProfileDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProfileConfigTabControl.resx">
-      <DependentUpon>ProfileConfigTabControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ProfileConfigTabPanel.resx">
+      <DependentUpon>ProfileConfigTabPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ControlPanel.ja-JP.resx">
       <DependentUpon>ControlPanel.cs</DependentUpon>
@@ -187,14 +187,14 @@
     <EmbeddedResource Include="Controls\ErrorLogPanel.resx">
       <DependentUpon>ErrorLogPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\GeneralConfigTabControl.resx">
-      <DependentUpon>GeneralConfigTabControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\GeneralConfigTabPanel.resx">
+      <DependentUpon>GeneralConfigTabPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RenameProfileDialog.resx">
       <DependentUpon>RenameProfileDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Providers\MicrosoftSpeechSynthesizerConfigControl.resx">
-      <DependentUpon>MicrosoftSpeechSynthesizerConfigControl.cs</DependentUpon>
+    <EmbeddedResource Include="Providers\MicrosoftSpeechSynthesizerConfigPanel.resx">
+      <DependentUpon>MicrosoftSpeechSynthesizerConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

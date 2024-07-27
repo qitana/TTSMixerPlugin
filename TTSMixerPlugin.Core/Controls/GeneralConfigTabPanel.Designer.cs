@@ -1,6 +1,6 @@
 ﻿namespace Qitana.TTSMixerPlugin
 {
-    partial class GeneralConfigTabControl
+    partial class GeneralConfigTabPanel
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralConfigTabControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralConfigTabPanel));
             this.cbOverrideOriginalPlayTTS = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbOverrideOriginalPlaySound = new System.Windows.Forms.CheckBox();

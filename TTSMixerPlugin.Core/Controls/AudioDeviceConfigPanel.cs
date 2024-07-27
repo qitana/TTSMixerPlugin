@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Qitana.TTSMixerPlugin
 {
-    public partial class AudioDeviceConfigControl : UserControl
+    public partial class AudioDeviceConfigPanel : UserControl
     {
         IAudioDeviceConfig _config;
         PluginConfig _pluginConfig;
 
-        public AudioDeviceConfigControl(TinyIoCContainer container, IAudioDeviceConfig config)
+        public AudioDeviceConfigPanel(TinyIoCContainer container, IAudioDeviceConfig config)
         {
             InitializeComponent();
             _config = config;

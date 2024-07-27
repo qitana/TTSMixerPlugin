@@ -1,6 +1,6 @@
 ﻿namespace Qitana.TTSMixerPlugin.Providers
 {
-    partial class MicrosoftSpeechSynthesizerConfigControl
+    partial class MicrosoftSpeechSynthesizerConfigPanel
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -117,7 +117,7 @@
             this.labelRateValue.TabIndex = 6;
             this.labelRateValue.Text = "0";
             // 
-            // SpeechSynthesizerConfigControl
+            // MicrosoftSpeechSynthesizerConfigPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,7 +129,7 @@
             this.Controls.Add(this.labelVolume);
             this.Controls.Add(this.comboBoxVoiceName);
             this.Controls.Add(this.labelVoiceName);
-            this.Name = "SpeechSynthesizerConfigControl";
+            this.Name = "MicrosoftSpeechSynthesizerConfigPanel";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(446, 204);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).EndInit();
