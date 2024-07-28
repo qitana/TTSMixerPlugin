@@ -18,8 +18,6 @@ namespace Qitana.TTSMixerPlugin.Providers
         private AzureAISpeechConfig config;
         private readonly ILogger logger;
 
-        private bool isApiConnected = false;
-
         public AzureAISpeechConfigPanel(TinyIoCContainer container, AzureAISpeech profile)
         {
             InitializeComponent();
@@ -51,11 +49,12 @@ namespace Qitana.TTSMixerPlugin.Providers
                 try
                 {
                     voices = await GetVoices();
-                    isApiConnected = true;
+                    labelStatusMessage.Text = "API Connected.";
                 }
                 catch (Exception ex)
                 {
-                    isApiConnected = false;
+                    labelStatusMessage.Text = "API Connection Failed.";
+                    logger.Log(LogLevel.Error, $"Failed to get voices: {ex.Message}");
                 }
 
                 profile.Voices = voices;
@@ -76,6 +75,7 @@ namespace Qitana.TTSMixerPlugin.Providers
             }
             catch (Exception ex)
             {
+                logger.Log(LogLevel.Error, $"Failed to initialize AzureAISpeechConfigPanel: {ex.Message}");
             }
 
             comboBoxVoice.SelectedIndexChanged += comboBoxVoice_SelectedIndexChanged;

@@ -43,9 +43,11 @@
             this.labelPitch = new System.Windows.Forms.Label();
             this.groupBoxSettings = new System.Windows.Forms.GroupBox();
             this.trackBarPitch = new System.Windows.Forms.TrackBar();
-            this.labelVolumeValue = new System.Windows.Forms.Label();
-            this.labelRateValue = new System.Windows.Forms.Label();
             this.labelPitchValue = new System.Windows.Forms.Label();
+            this.labelRateValue = new System.Windows.Forms.Label();
+            this.labelVolumeValue = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.labelStatusMessage = new System.Windows.Forms.Label();
             this.groupBoxCredentials.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRate)).BeginInit();
@@ -213,14 +215,14 @@
             this.trackBarPitch.TabIndex = 13;
             this.trackBarPitch.TickFrequency = 5;
             // 
-            // labelVolumeValue
+            // labelPitchValue
             // 
-            this.labelVolumeValue.AutoSize = true;
-            this.labelVolumeValue.Location = new System.Drawing.Point(265, 89);
-            this.labelVolumeValue.Name = "labelVolumeValue";
-            this.labelVolumeValue.Size = new System.Drawing.Size(11, 12);
-            this.labelVolumeValue.TabIndex = 14;
-            this.labelVolumeValue.Text = "0";
+            this.labelPitchValue.AutoSize = true;
+            this.labelPitchValue.Location = new System.Drawing.Point(265, 213);
+            this.labelPitchValue.Name = "labelPitchValue";
+            this.labelPitchValue.Size = new System.Drawing.Size(11, 12);
+            this.labelPitchValue.TabIndex = 16;
+            this.labelPitchValue.Text = "0";
             // 
             // labelRateValue
             // 
@@ -231,20 +233,40 @@
             this.labelRateValue.TabIndex = 15;
             this.labelRateValue.Text = "0";
             // 
-            // labelPitchValue
+            // labelVolumeValue
             // 
-            this.labelPitchValue.AutoSize = true;
-            this.labelPitchValue.Location = new System.Drawing.Point(265, 213);
-            this.labelPitchValue.Name = "labelPitchValue";
-            this.labelPitchValue.Size = new System.Drawing.Size(11, 12);
-            this.labelPitchValue.TabIndex = 16;
-            this.labelPitchValue.Text = "0";
+            this.labelVolumeValue.AutoSize = true;
+            this.labelVolumeValue.Location = new System.Drawing.Point(265, 89);
+            this.labelVolumeValue.Name = "labelVolumeValue";
+            this.labelVolumeValue.Size = new System.Drawing.Size(11, 12);
+            this.labelVolumeValue.TabIndex = 14;
+            this.labelVolumeValue.Text = "0";
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(335, 121);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(40, 12);
+            this.labelStatus.TabIndex = 14;
+            this.labelStatus.Text = "Status:";
+            // 
+            // labelStatusMessage
+            // 
+            this.labelStatusMessage.AutoSize = true;
+            this.labelStatusMessage.Location = new System.Drawing.Point(343, 136);
+            this.labelStatusMessage.Name = "labelStatusMessage";
+            this.labelStatusMessage.Size = new System.Drawing.Size(51, 12);
+            this.labelStatusMessage.TabIndex = 15;
+            this.labelStatusMessage.Text = "Unknown";
             // 
             // AzureAISpeechConfigPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.labelStatusMessage);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.groupBoxSettings);
             this.Controls.Add(this.groupBoxCredentials);
             this.Name = "AzureAISpeechConfigPanel";
@@ -258,6 +280,7 @@
             this.groupBoxSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitch)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -281,5 +304,7 @@
         private System.Windows.Forms.Label labelVolumeValue;
         private System.Windows.Forms.Label labelPitchValue;
         private System.Windows.Forms.Label labelRateValue;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Label labelStatusMessage;
     }
 }
