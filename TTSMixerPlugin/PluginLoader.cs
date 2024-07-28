@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Advanced_Combat_Tracker;
+using RainbowMage.OverlayPlugin;
 
 
 namespace Qitana.TTSMixerPlugin
 {
-    internal class PluginLoader : IActPluginV1
+    internal class PluginLoader : IActPluginV1, IOverlayAddonV2
     {
         TinyIoCContainer _container;
         PluginMain _pluginMain;
@@ -44,5 +45,11 @@ namespace Qitana.TTSMixerPlugin
             }
         }
 
+        public void Init()
+        {
+            var container = RainbowMage.OverlayPlugin.Registry.GetContainer();
+            var registry = container.Resolve<RainbowMage.OverlayPlugin.Registry>();
+            registry.StartEventSource(new TTSMixerEventSource(container, _pluginMain));
+        }
     }
 }
